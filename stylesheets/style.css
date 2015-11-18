@@ -1,0 +1,53 @@
+div {
+		font-family: "Arial Black","Gadget",sans-serif;
+}
+p {
+		font-family: "Trebuchet MS","Helvetica",sans-serif;
+		margin: 0 0 0 10px;
+}
+h1 {
+		text-align: center;
+		background-color: green;
+		border-radius: 10px;
+		color: aliceblue;
+}
+h2 {
+		text-align: center;
+		background-color: orangered;
+		border-radius: 20px;
+		color: chartreuse;
+}
+.lesson {
+		background-color: grey;
+		padding: 0 0 10px 0;
+}
+/*Assigning Color*/
+.bodycolor {
+		background-color: aqua;
+}
+.header {
+		background-color: #639;
+		text-align: center;
+}
+.dog {
+		height: 200px;
+}
+.code {
+		font-family: "Courier New","Courier", monospace;
+		text-align: left;
+		background-color: black;
+		color: green;
+		width: 200px;
+		padding: 10px;
+		border: 10px;
+		margin: 0 0 0 50px;
+}
+.space2 {
+		margin: 0 0 0 20px;
+}
+.space5 {
+		margin: 0 0 0 50px;
+}
+.color-red {
+		color: red;
+}
