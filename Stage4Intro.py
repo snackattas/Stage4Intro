@@ -21,7 +21,7 @@ class Handler(webapp2.RequestHandler):
 class MainPage(Handler):
 	def get(self):
 		error = 0
-		self.render('base.html')
+		self.render('child.html')
 class TestHandler(Handler):
 	def get(self):
 		note_text = self.request.get("note_text")
@@ -31,11 +31,11 @@ class TestHandler(Handler):
 			ID.type_of_note = self.request.get('type_of_note')
 			ID.note_text = note_text
 			ID.put()
-			self.render('base.html', type_of_note = ID.type_of_note, note_text = ID.note_text)
+			self.render('child.html', type_of_note = ID.type_of_note, note_text = ID.note_text)
 			logging.debug('ID: ' + str(ID) + 'Date: ' + str(ID.date) + 'text: ' + ID.note_text + 'type of note: ' + ID.type_of_note)
 		else:
 			error = 1
-			self.render('base.html')
+			self.render('child.html')
 			other = self.get_data()
 			self.response.write(other)
 	def get_data(self):

@@ -5,10 +5,10 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: .*
-  script: Stage4Intro.app
 - url: /stylesheets
   static_dir: stylesheets
+- url: .*
+  script: Stage4Intro.app
 libraries:
 - name: webapp2
   version: latest

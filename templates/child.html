@@ -1,27 +1,14 @@
+{% extends "parent.html" %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/stylesheets/style.css">
 		<title>My notes</title>
 	</head>
 	<body class="bodycolor">
-		<form action="TestHandler" method="GET">
-			<textarea name="note_text" rows=10 cols=80></textarea>
-			<br>
-			<label>Lesson
-			<input type="radio" name="type_of_note" value="Lesson">
-			</label>
-			<br>
-			<label>Concept
-			<input type="radio" name="type_of_note" value="Concept">
-			</label>
-			<br>
-			<label>Information
-			<input type="radio" name="type_of_note" value="Information">
-			</label>
-			<br>
-			<input type="submit" value="Submit">
-		</form>
+		{% block form %}
+		{% endblock %}
 		<div class="lesson">
 			<h1>Lesson 0: Basics of the Web and HTML</h1>
 			<div class="concept">
