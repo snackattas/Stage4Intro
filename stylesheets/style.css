@@ -1,5 +1,7 @@
 div {
 		font-family: "Arial Black","Gadget",sans-serif;
+    background-color: grey;
+		padding: 0 0 10px 0;
 }
 p {
 		font-family: "Trebuchet MS","Helvetica",sans-serif;
@@ -17,20 +19,21 @@ h2 {
 		border-radius: 20px;
 		color: chartreuse;
 }
-.lesson {
-		background-color: grey;
-		padding: 0 0 10px 0;
+li {
+    font-weight: normal;
+    font-family: "Trebuchet MS","Helvetica",sans-serif;
 }
 /*Assigning Color*/
 .bodycolor {
 		background-color: aqua;
 }
+.notes_header {
+    text-align: left;
+    background-color: aqua;
+}
 .header {
 		background-color: #639;
 		text-align: center;
-}
-.dog {
-		height: 200px;
 }
 .code {
 		font-family: "Courier New","Courier", monospace;
@@ -50,4 +53,8 @@ h2 {
 }
 .color-red {
 		color: red;
+}
+.error {
+    color: red;
+    background-color: aqua;
 }
