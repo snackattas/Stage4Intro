@@ -240,35 +240,78 @@
       <div class="concept">
         <h2>HTTP (Hypertext Transer Protocol) Requests</h2>
         <div class="information">
-          <p>HTTP requests are the main protocol of the web for sending information to/from servers.  There are 2 methods of HTTP Requests, GETs and POSTs:</p>
+          <p>HTTP requests and responses are the main way that information is sent to/from servers.  The two most used methods in HTTP for request-response between a client and a server are GETs and POSTs:</p>
             <p>
             <ul>
-              <li>GETs request data from a specified source</li>
-              <li>POSTs submit data to a server to be processed</li>
+              <li>GETs request data from a specified source.  They can:</li>
+                <ul>
+                  <li>Retrieve parameters from the URL</li>
+                  <li>Fetch documents from the server</li>
+                  <li>It's okay to cache data in a GET request</li>
+                  <li>The max length is the max length of the URL</li>
+                  <li>GETs should never change data on the server</li>
+                </ul>
+              <li>POSTs submit data to a server to be processed. They can:</li>
+                <ul>
+                  <li>Use parameters in the body</li>
+                  <li>Be used for updating data, or making changes to the server</li>
+                  <li>There's no max length</li>
+                  <li>It's not okay to cache data with a POST</li>
+                </ul>
             </ul>
             </p>
             <p>
             There are other pieces of information that make up a HTTP Request, like HTTP fields.  HTTP fields are components of the header section of the request, and they define the operating parameters of a HTTP transaction</p>
+        <br>
         <p>Let's extrapolate the HTTP request from this URL: <code>http://www.example.com/foo</code>
-        <br></p>
-        <p>
-          HTTP Request= GET /foo HTTP/1.1
+        <br>
+          Sample Request Line from that URL: <code>GET /foo HTTP/1.1 </code>
         <ul>
         <li>Method: GET</li>
         <li>Path: /foo --> the actual document you want from the server</li>
         <li>Version: HTTP/1.1</li>
         </ul>
-        
+        <p>While GETs and POSTs can make requests to the server, the server responds with a Status Line.
+        <br><br>
+          Sample Status Line: <code>HTTP/1.1 200 OK</code>
+        <ul>
+          <li>Version: HTTP/1.1</li>
+          <li>Status code: 200</li>
+          <li>Reason phrase: OK --> Basically what the Status code means</li>
+        </ul>
+        </p>
+        <p>Status codes begin with a 1-5 and are 3 digits. The first digit defines what status class it’s in. <br><br>
+          Common Status Codes:
+        <ul>
+          <li>200s - basically success</li>
+          <li>300s- you need to do something differently technically to find the information</li>
+          <li>400s - error on browser side</li>
+          <li>500s - error on server side</li>
+          <li>200- OK. It means that the document was found.  This is the most common status code</li>
+          <li>302- Found.  The document was found, but it was located somewhere else</li>
+          <li>404- Not Found. The document wasn’t found</li>
+          <li>500- Server Error. The server crashed trying to handle the request</li>
+          </ul>  
+        </p>
+        </ul>
         </div>
       </div>
       <div class="concept">
         <h2>Validating User Input</h2>
         <div class="information">
           <p>Use the HTTP form tag to get input from the user. The form element can contain many of the following elements: input, textarea, button, select, option, label, etc.
-          <br>
-          It is very important to veryify on the server side that what was received from the client is what we expect to receive.  It's simple to put some validation on the client side, so we don't blindly use whatever is passed in from the client in our server operations.  
-          <br>
-          It's possible for a user of a webpage to type html code or other types of code into web forms.  If the browser rendered this as actual code, it could cause havoc for the webpage and for security.  This is called "insertion".  To block against this, you can use the cgi module included within Python, which has escaping in it.  Or, you can set autoescape = True in Jinja2
+          <br><br>
+            It's possible for a user of a webpage to type html code or other types of code into web forms.  If the browser rendered this as actual code, it could cause havoc for the webpage and for security.  This is called "insertion".  To block against this, you can use the cgi module included within Python, which has escaping in it. That would be done on the server side. Or, you can set autoescape = True in Jinja2, which is a great method for escaping when using Jinja2 templates.
+            <br><br>
+          It is very important to veryify on the server side that what was received from the client is what we expect to receive.  It's simple to put some validation on the client side so we don't blindly use whatever is passed in from the client in our server operations, like HTML escaping.  But, we also need validation on the server side, so that the data in the form is usable for whatever purpose we need it to be.  
+            <br><br>
+            Server side validation is helpful because:
+            <ul>
+              <li>If the data is not desirable, the server can redirect to an appropriate error page, that helps the user enter data in the correct format</li>
+              <li>It can prevent crashes from storing bad data on the server</li>
+              <li>It can also keep the site secure, so that insertion attacks or other attacks are blocked</li>
+              <li>Server redirection helps to ensure that reloading a page doesn't resubmit the form, and it ensure that there are distinct pages for forms and for successful form submission. </li>
+          </ul>
         </div>
       </div>
       <div class="concept">
@@ -293,6 +336,9 @@
           <br>
           <p>Jinja2 has built in filters, which are invoked with the "|" character.  But a better way to do it is to autoescape everything:
             <br><code>jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)</code></p>
+          <br>
+          <p>Programmers use HTML templates because this technology reduces the burden of writing out each piece of HTML.  Repetitive pieces of HTML can be abstracted with template code.  This makes the code easier to read, and easier to debug, saving everyone time.  As well, the webpage can be more dynamic and change depending on server variables being passed to the template, giving the programmer more freedom. Being able to use if statements, for loops, template inheritance, and variables in templates has changed the way programmers code today.
+          </p>
           <br>
           <p>Other Helpful Tips:
           <ul>
