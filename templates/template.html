@@ -7,8 +7,10 @@
 	</head>
 	<body class="bodycolor">
     <div class="notes_header">Please type in your notes here:</div>
-    <form  action="Submit" method="GET">
+    <form  action="Submit" method="POST">
       <textarea placeholder="Type a Lesson, Concept, or Information!" name="note_text" rows=10 cols=80></textarea>
+      <br>
+      <b>Note Types</b>:
       <br>
       <label>Lesson
       <input type="radio" name="type_of_note" value="Lesson" {{ disableLesson }}>
@@ -26,7 +28,7 @@
     </form>
     {% if error %}
     <br>
-    <div class="error">You must type in some notes before submitting!</div>
+    <div class="error">You must type in some notes and select a note type before submitting!</div>
     {% endif %}
 		<div class="lesson">
 			<h1>Lesson 0: Basics of the Web and HTML</h1>
